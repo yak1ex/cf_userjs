@@ -4,7 +4,7 @@
 // @description    Colorize standings pages at Codeforces by used programming language
 // @license        http://creativecommons.org/publicdomain/zero/1.0/
 // @copyright      yak_ex
-// @version        0.02
+// @version        1.1
 // @include        http://www.codeforces.com/contest/*/standings*
 // @include        http://www.codeforces.com/contest/*/room/*
 // @include        http://codeforces.com/contest/*/standings*
@@ -18,6 +18,8 @@
 // v0.01 2011/05/05 Initial version
 // v0.02 2011/05/05 Enable on standings for specific division and rooms
 //                  Add a feature to highlight specific language
+// v1.1  2011/12/10 Add Scala and OCaml support
+//                  Version jump because Chrome recognizes 0.0x as 1.0
 
 ///////////////////////////////////////////////////////////////////////
 //
@@ -58,7 +60,11 @@ function colorize()
 		[ 'Ruby',      'l-ruby',    'background-color: #ccff99 !important; border: solid #6666ff;' ],
 
 	// Haskell GHC 6.12
-		[ 'Haskell',   'l-haskell', 'background-color: #ccccff !important;' ],
+		[ 'Haskell',   'l-haskell', 'background-color: #ccccff !important; border: solid #cc00ff;' ],
+	// OCaml 3.11
+		[ 'Ocaml',     'l-ocaml',   'background-color: #ccccff !important; border: solid #00cc00;' ],
+	// Scala 2.9
+		[ 'Scala',     'l-scala',   'background-color: #ccccff !important; border: solid #6666ff;' ],
 
 	];
 
