@@ -4,7 +4,7 @@
 // @description    Colorize standings pages at Codeforces by used programming language
 // @license        http://creativecommons.org/publicdomain/zero/1.0/
 // @copyright      yak_ex
-// @version        1.2
+// @version        1.3
 // @include        http://www.codeforces.com/contest/*/standings*
 // @include        http://www.codeforces.com/contest/*/room/*
 // @include        http://codeforces.com/contest/*/standings*
@@ -22,6 +22,7 @@
 //                  Version jump because Chrome recognizes 0.0x as 1.0
 // v1.2  2012/06/05 Record marked languages into cookie to be persistent, at least, between reloads.
 //                  Thanks for suggestion by iTwin
+// v1.3  2012/06/05 Add Java 6, Java 7 and Perl support
 
 ///////////////////////////////////////////////////////////////////////
 //
@@ -48,12 +49,16 @@ function colorize()
 	// Microsoft Visual C++ 2005+
 		[ 'MS C++',    'l-mscpp',   'background-color: #ccffff !important; border: dashed #6666ff;' ],
 
+	// Java 7
+		[ 'Java 7',    'l-java7',   'background-color: #ffccff !important; border: dashed #ff33ff;' ],
 	// Java 6
-		[ 'Java',      'l-java',    'background-color: #ffccff !important;' ],
+		[ 'Java 6',    'l-java6',   'background-color: #ffccff !important;' ],
 
 	// C# Mono 2.6+
 		[ 'C#',        'l-csharp',  'background-color: #ffcc99 !important;' ],
 
+	// Perl 5.12+
+		[ 'Perl',      'l-perl',    'background-color: #ccff99 !important; border: dashed #6666ff;' ],
 	// PHP 5.2+
 		[ 'PHP',       'l-php',     'background-color: #ccff99 !important; border: solid #cc00ff;' ],
 	// Python 2.6+
