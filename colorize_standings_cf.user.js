@@ -4,7 +4,7 @@
 // @description    Colorize standings pages at Codeforces by used programming language
 // @license        http://creativecommons.org/publicdomain/zero/1.0/
 // @copyright      yak_ex
-// @version        1.1
+// @version        1.2
 // @include        http://www.codeforces.com/contest/*/standings*
 // @include        http://www.codeforces.com/contest/*/room/*
 // @include        http://codeforces.com/contest/*/standings*
@@ -20,6 +20,8 @@
 //                  Add a feature to highlight specific language
 // v1.1  2011/12/10 Add Scala and OCaml support
 //                  Version jump because Chrome recognizes 0.0x as 1.0
+// v1.2  2012/06/05 Record marked languages into cookie to be persistent, at least, between reloads.
+//                  Thanks for suggestion by iTwin
 
 ///////////////////////////////////////////////////////////////////////
 //
@@ -97,8 +99,19 @@ function colorize()
 	}
 
 	for(var i = 0; i < spec.length; ++i) {
+		var key = 'colorize_standings_cf_' + spec[i][1];
 		$('td[title$="'+ spec[i][0] + '"]').addClass(spec[i][1]);
-		$('td.'+ spec[i][1]).click((function(c) { return function() { $(c).toggleClass('highlight-by-lang'); }; })('td.'+ spec[i][1]));
+		if(Codeforces.getCookie(key) == 1) {
+			$('td.'+ spec[i][1]).addClass('highlight-by-lang');
+		}
+		$('td.'+ spec[i][1]).click((function(k, c) { return function() {
+			if(Codeforces.getCookie(k) == 1) {
+				document.cookie = k + '=0; expires=Mon, 4-Jun-2012 00:00:00 GMT; path=/';
+			} else {
+				document.cookie = k + '=1; path=/';
+			}
+			$(c).toggleClass('highlight-by-lang'); }; })(key, 'td.'+ spec[i][1])
+		);
 	}
 }
 
