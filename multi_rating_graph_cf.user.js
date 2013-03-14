@@ -4,7 +4,7 @@
 // @description    Enable to show rating history graph with other accounts on profile pages at Codeforces
 // @license        http://creativecommons.org/publicdomain/zero/1.0/
 // @copyright      yak_ex
-// @version        0.03
+// @version        1.1
 // @include        http://www.codeforces.com/profile/*
 // @include        http://codeforces.com/profile/*
 // @include        http://www.codeforces.ru/profile/*
@@ -15,6 +15,8 @@
 // v0.02 2011/04/16 Adjust yaxis scale
 //                  Warn if data can't be obtained
 // v0.03 2011/04/17 Show log-in account always
+// v1.1  2013/03/15 Fix failure to get log-in account
+//                  Version jump because Chrome recognizes 0.0x as 1.0
 
 ///////////////////////////////////////////////////////////////////////
 //
@@ -105,7 +107,7 @@ function add_unbind(cont)
 function get_login_account()
 {
 	var e = document.getElementById('header');
-	var re3 = new RegExp('<a href="/profile/([^"]*)">[^<]*</a>[^<]*<a href="/logout">');
+	var re3 = new RegExp('<a href="/profile/([^"]*)">[^<]*</a>[^<]*<a href="[^"]*/logout">');
 	return re3.test(e.innerHTML) ? RegExp.$1 : undefined;
 }
 
