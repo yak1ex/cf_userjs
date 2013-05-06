@@ -4,7 +4,7 @@
 // @description    Colorize standings pages at Codeforces by used programming language
 // @license        http://creativecommons.org/publicdomain/zero/1.0/
 // @copyright      yak_ex
-// @version        1.3
+// @version        1.4
 // @include        http://www.codeforces.com/contest/*/standings*
 // @include        http://www.codeforces.com/contest/*/room/*
 // @include        http://codeforces.com/contest/*/standings*
@@ -23,6 +23,9 @@
 // v1.2  2012/06/05 Record marked languages into cookie to be persistent, at least, between reloads.
 //                  Thanks for suggestion by iTwin
 // v1.3  2012/06/05 Add Java 6, Java 7 and Perl support
+// v1.4  2013/05/07 Split Python to Python 2 and Python 3.
+//                  Split C# to Mono C# and MS C#
+//                  Add D and Go.
 
 ///////////////////////////////////////////////////////////////////////
 //
@@ -55,14 +58,23 @@ function colorize()
 		[ 'Java 6',    'l-java6',   'background-color: #ffccff !important;' ],
 
 	// C# Mono 2.6+
-		[ 'C#',        'l-csharp',  'background-color: #ffcc99 !important;' ],
+		[ 'Mono C#',   'l-mncsharp','background-color: #ffcc99 !important;' ],
+	// MS C# .Net 4
+		[ 'MS C#',     'l-mscsharp','background-color: #ffcc99 !important; border: dashed #ff33ff;' ],
+
+	// D
+		[ 'D',         'l-d',       'background-color: #00ff99 !important;' ],
+	// Go
+		[ 'Go',        'l-go',      'background-color: #33cccc !important;' ],
 
 	// Perl 5.12+
 		[ 'Perl',      'l-perl',    'background-color: #ccff99 !important; border: dashed #6666ff;' ],
 	// PHP 5.2+
 		[ 'PHP',       'l-php',     'background-color: #ccff99 !important; border: solid #cc00ff;' ],
 	// Python 2.6+
-		[ 'Python',    'l-python',  'background-color: #ccff99 !important; border: solid #00cc00;' ],
+		[ 'Python 2',  'l-python2', 'background-color: #ccff99 !important; border: solid #00cc00;' ],
+	// Python 3
+		[ 'Python 3',  'l-python3', 'background-color: #ccff99 !important; border: dashed #00cc00;' ],
 	// Ruby 1.7+
 		[ 'Ruby',      'l-ruby',    'background-color: #ccff99 !important; border: solid #6666ff;' ],
 
