@@ -45,19 +45,21 @@ function colorize()
 
 	// GNU C++0x 4
 		[ 'GNU C++0x', 'l-gcpp0x',  'background-color: #ccffff !important; border: double #6666ff;' ],
-	// GNU C++ 4.6
+	// GNU C++ 4.7
 		[ 'GNU C++',   'l-gcpp',    'background-color: #ccffff !important;' ],
 	// GNU C 4
 		[ 'GNU C',     'l-gcc',     'background-color: #ccffff !important; border: dotted #6666ff;' ],
-	// Microsoft Visual C++ 2005+
+	// Microsoft Visual C++ 2010
 		[ 'MS C++',    'l-mscpp',   'background-color: #ccffff !important; border: dashed #6666ff;' ],
 
+	// Java 8
+		[ 'Java 8',    'l-java8',   'background-color: #ffccff !important; border: dashed #ff33ff;' ],
 	// Java 7
-		[ 'Java 7',    'l-java7',   'background-color: #ffccff !important; border: dashed #ff33ff;' ],
+		[ 'Java 7',    'l-java7',   'background-color: #ffccff !important; border: dotted #ff33ff;' ],
 	// Java 6
 		[ 'Java 6',    'l-java6',   'background-color: #ffccff !important;' ],
 
-	// C# Mono 2.6+
+	// C# Mono 2.10
 		[ 'Mono C#',   'l-mncsharp','background-color: #ffcc99 !important;' ],
 	// MS C# .Net 4
 		[ 'MS C#',     'l-mscsharp','background-color: #ffcc99 !important; border: dashed #ff33ff;' ],
@@ -67,22 +69,24 @@ function colorize()
 	// Go
 		[ 'Go',        'l-go',      'background-color: #33cccc !important;' ],
 
+	// JavaScript V8
+		[ 'JavaScript','l-js',     'background-color: #ccff99 !important; border: dashed #ff33ff;' ],
 	// Perl 5.12+
 		[ 'Perl',      'l-perl',    'background-color: #ccff99 !important; border: dashed #6666ff;' ],
-	// PHP 5.2+
+	// PHP 5.3
 		[ 'PHP',       'l-php',     'background-color: #ccff99 !important; border: solid #cc00ff;' ],
-	// Python 2.6+
+	// Python 2.7
 		[ 'Python 2',  'l-python2', 'background-color: #ccff99 !important; border: solid #00cc00;' ],
-	// Python 3
+	// Python 3.3
 		[ 'Python 3',  'l-python3', 'background-color: #ccff99 !important; border: dashed #00cc00;' ],
-	// Ruby 1.7+
+	// Ruby 2
 		[ 'Ruby',      'l-ruby',    'background-color: #ccff99 !important; border: solid #6666ff;' ],
 
-	// Haskell GHC 6.12
+	// Haskell GHC 7.6
 		[ 'Haskell',   'l-haskell', 'background-color: #ccccff !important; border: solid #cc00ff;' ],
-	// OCaml 3.11
+	// OCaml 4
 		[ 'Ocaml',     'l-ocaml',   'background-color: #ccccff !important; border: solid #00cc00;' ],
-	// Scala 2.9
+	// Scala 2.11
 		[ 'Scala',     'l-scala',   'background-color: #ccccff !important; border: solid #6666ff;' ],
 
 	];
