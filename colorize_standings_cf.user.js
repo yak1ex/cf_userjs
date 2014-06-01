@@ -15,17 +15,17 @@
 // @include        http://codeforces.ru/contest/*/room/*
 // ==/UserScript==
 
-// v0.01 2011/05/05 Initial version
-// v0.02 2011/05/05 Enable on standings for specific division and rooms
-//                  Add a feature to highlight specific language
-// v1.1  2011/12/10 Add Scala and OCaml support
-//                  Version jump because Chrome recognizes 0.0x as 1.0
-// v1.2  2012/06/05 Record marked languages into cookie to be persistent, at least, between reloads.
-//                  Thanks for suggestion by iTwin
-// v1.3  2012/06/05 Add Java 6, Java 7 and Perl support
 // v1.4  2013/05/07 Split Python to Python 2 and Python 3.
 //                  Split C# to Mono C# and MS C#
 //                  Add D and Go.
+// v1.3  2012/06/05 Add Java 6, Java 7 and Perl support
+// v1.2  2012/06/05 Record marked languages into cookie to be persistent, at least, between reloads.
+//                  Thanks for suggestion by iTwin
+// v1.1  2011/12/10 Add Scala and OCaml support
+//                  Version jump because Chrome recognizes 0.0x as 1.0
+// v0.02 2011/05/05 Enable on standings for specific division and rooms
+//                  Add a feature to highlight specific language
+// v0.01 2011/05/05 Initial version
 
 ///////////////////////////////////////////////////////////////////////
 //
