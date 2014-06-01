@@ -4,7 +4,7 @@
 // @description    Colorize standings pages at Codeforces by used programming language
 // @license        http://creativecommons.org/publicdomain/zero/1.0/
 // @copyright      yak_ex
-// @version        1.4
+// @version        1.5
 // @include        http://www.codeforces.com/contest/*/standings*
 // @include        http://www.codeforces.com/contest/*/room/*
 // @include        http://codeforces.com/contest/*/standings*
@@ -15,6 +15,7 @@
 // @include        http://codeforces.ru/contest/*/room/*
 // ==/UserScript==
 
+// v1.5  2014/06/01 Add Java 8 and JavaScript.
 // v1.4  2013/05/07 Split Python to Python 2 and Python 3.
 //                  Split C# to Mono C# and MS C#
 //                  Add D and Go.
