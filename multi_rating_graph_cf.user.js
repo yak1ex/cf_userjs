@@ -11,12 +11,12 @@
 // @include        http://codeforces.ru/profile/*
 // ==/UserScript==
 
-// v0.01 2011/04/16 Initial version
-// v0.02 2011/04/16 Adjust yaxis scale
-//                  Warn if data can't be obtained
-// v0.03 2011/04/17 Show log-in account always
 // v1.1  2013/03/15 Fix failure to get log-in account
 //                  Version jump because Chrome recognizes 0.0x as 1.0
+// v0.03 2011/04/17 Show log-in account always
+// v0.02 2011/04/16 Adjust yaxis scale
+//                  Warn if data can't be obtained
+// v0.01 2011/04/16 Initial version
 
 ///////////////////////////////////////////////////////////////////////
 //
