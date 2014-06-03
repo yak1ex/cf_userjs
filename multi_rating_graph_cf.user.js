@@ -89,13 +89,32 @@ function update_graph(input)
 function account_manage()
 {
 	var handle = window.location.href.match(/[^/]*$/);
-	var elems = $('<div id="account-dialog">Input space-separated accounts without this account.<br/>' + 
-		'<input type="text" value="'+(handle !=  login_account ? login_account : '')+'"><br/><input type="button" value="OK"> <input type="button" value="cancel"></div>');
-	elems.css({'position':'fixed','z-index':2000,'left':'50%','top':'50%','background':'rgb(255,255,255)','padding':'1em'});
-	$('body').append(elems);
-	var input = prompt("Input space-separated accounts without this account.", handle !=  login_account ? login_account : '');
-	$('#account-dialog').remove();
-	update_graph(input);
+	var dialog = $('<div id="account-dialog"/>').css({
+		'position':'fixed','padding':'5px','width':'26em','height':'7em','z-index':2000,'left':'50%','top':'50%','margin-top':'-3.5em','margin-left':'-13em',
+		'border':'1px solid', 'border-radius':'5px', '-moz-border-radius':'5px', '-webkit-border-radius':'5px',
+		'background':'rgb(255,255,255)','box-shadow':'rgb(64,64,64) 5px 5px 5px','-moz-box-shadow':'rgb(64,64,64) 5px 5px 5px','-webkit-box-shadow':'rgb(64,64,64) 5px 5px 5px'
+	}).html(
+		'<p>Input space-separated accounts without this account.</p>' +
+		'<form id="account-form"><p><input type="text" id="accounts" size="40" value="'+(handle !=  login_account ? login_account : '')+'"></p>' +
+		'<p><input type="submit" id="ok" value="OK"> <input type="button" id="cancel" value="cancel"></p></form>'
+	);
+	$('#cancel', dialog).click(function() {
+		$('#account-dialog').remove();
+		$('#account-dialog-blocker').remove();
+	});
+	$('#account-form', dialog).submit(function() {
+		var input = $('#accounts').val();
+		$('#account-dialog').remove();
+		$('#account-dialog-blocker').remove();
+		update_graph(input);
+		return false;
+	});
+	var blocker = $('<div id="account-dialog-blocker"/>').css({
+		'position':'fixed','top':0,'left':0,'bottom':0,'right':0,'width':'100%','height':'100%',
+		'background':'rgb(64,64,64)','opacity':0.75,'filter':'alpha(opacity=75)','-ms-filter':'"alpha(opacity=75)"'
+	});
+	$('body').append(blocker);
+	$('body').append(dialog);
 }
 
 ///////////////////////////////////////////////////////////////////////
