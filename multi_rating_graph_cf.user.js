@@ -89,7 +89,12 @@ function update_graph(input)
 function account_manage()
 {
 	var handle = window.location.href.match(/[^/]*$/);
+	var elems = $('<div id="account-dialog">Input space-separated accounts without this account.<br/>' + 
+		'<input type="text" value="'+(handle !=  login_account ? login_account : '')+'"><br/><input type="button" value="OK"> <input type="button" value="cancel"></div>');
+	elems.css({'position':'fixed','z-index':2000,'left':'50%','top':'50%','background':'rgb(255,255,255)','padding':'1em'});
+	$('body').append(elems);
 	var input = prompt("Input space-separated accounts without this account.", handle !=  login_account ? login_account : '');
+	$('#account-dialog').remove();
 	update_graph(input);
 }
 
