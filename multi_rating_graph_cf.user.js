@@ -25,8 +25,8 @@
 
 function extract_data(cont)
 {
-	var re1 = new RegExp('data\\.push\\(([\\S\\s]*?)\\);', 'm');
-	return re1.test(cont) ? RegExp.$1 : undefined;
+	var re1 = new RegExp('data\\.push\\(([\\S\\s]*?)\\);\\s*data\\.push\\(([\\S\\s]*?)\\);', 'm');
+	return re1.test(cont) ? [RegExp.$1, RegExp.$2] : undefined;
 }
 
 function extract_scale(cont)
@@ -62,8 +62,10 @@ function update_graph(input)
 			check[accounts[i]] = 1;
 			var d = get_account_data(accounts[i]);
 			if(d != undefined && d[0] != undefined) {
-				data.push(eval(d[0]));
-				datas[idx] = { label: accounts[i], data: data[idx] };
+				data.push(eval(d[0][0]));
+				data.push(eval(d[0][1]));
+				datas[2*idx] = { label: accounts[i], data: data[2*idx] };
+				datas[2*idx+1] = { clickable: false, hoverable: false, color: "red", data: data[2*idx+1] };
 				++idx;
 				if(d[1] != undefined) {
 					if(d[1][0] < mymin) mymin = d[1][0];
