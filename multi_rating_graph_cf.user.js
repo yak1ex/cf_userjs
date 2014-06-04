@@ -90,7 +90,7 @@ function account_manage()
 {
 	var handle = window.location.href.match(/[^/]*$/);
 	var dialog = $('<div id="account-dialog"/>').css({
-		'position':'fixed','padding':'5px','width':'26em','height':'7em','z-index':2000,'left':'50%','top':'50%','margin-top':'-3.5em','margin-left':'-13em',
+		'position':'fixed','padding':'5px','width':'30em','z-index':2000,'left':'50%','top':'50%','margin-top':'-3.5em','margin-left':'-15em',
 		'border':'1px solid', 'border-radius':'5px', '-moz-border-radius':'5px', '-webkit-border-radius':'5px',
 		'background':'rgb(255,255,255)','box-shadow':'rgb(64,64,64) 5px 5px 5px','-moz-box-shadow':'rgb(64,64,64) 5px 5px 5px','-webkit-box-shadow':'rgb(64,64,64) 5px 5px 5px'
 	}).html(
@@ -98,6 +98,7 @@ function account_manage()
 		'<form id="account-form"><p><input type="text" id="accounts" size="40" value="'+(handle !=  login_account ? login_account : '')+'"></p>' +
 		'<p><input type="submit" id="ok" value="OK"> <input type="button" id="cancel" value="cancel"></p></form>'
 	);
+	$('p', dialog).css({'margin':'1em'});
 	$('#cancel', dialog).click(function() {
 		$('#account-dialog').remove();
 		$('#account-dialog-blocker').remove();
@@ -108,13 +109,28 @@ function account_manage()
 		$('#account-dialog-blocker').remove();
 		update_graph(input);
 		return false;
+	}).keydown(function(e) {
+		if(e.keyCode == 27) {
+			$('#cancel').click();
+		}
 	});
 	var blocker = $('<div id="account-dialog-blocker"/>').css({
-		'position':'fixed','top':0,'left':0,'bottom':0,'right':0,'width':'100%','height':'100%',
+		'position':'fixed','top':0,'left':0,'bottom':0,'right':0,'width':'100%','height':'100%','z-index':15,
 		'background':'rgb(64,64,64)','opacity':0.75,'filter':'alpha(opacity=75)','-ms-filter':'"alpha(opacity=75)"'
 	});
 	$('body').append(blocker);
 	$('body').append(dialog);
+	$('#accounts').autocomplete("/data/handles", {
+		delay: 200,
+		width: 200,
+		selectFirst: false,
+		matchContains: true,
+		multiple: true,
+		multipleSeparator: ' ',
+		minChars: 3,
+		scroll: true,
+	});
+	$('#accounts').focus();
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -159,7 +175,13 @@ function add_account_manage(cont)
 	target += 'account_manage = ' + account_manage + ';\n';
 	target += 'update_graph(login_account);\n';
 	target += '$("#placeholder .legend").unbind("click");\n';
-	target += '$("#placeholder .legend").bind("click", ' + account_manage + ');\n';
+	target += '$("#placeholder .legend").bind("click", account_manage);\n';
+// CAUTION FRAGILE: monkey patch for Autocompleter to handle multiple words correctly
+	target += '$(function() {\n';
+	target += 'var old = $.Autocompleter;\n';
+	target += 'eval("$.Autocompleter = " + (""+$.Autocompleter).replace("currentValue == q", "lastWord(currentValue) == q"));\n';
+	target += '$.Autocompleter.defaults = old.defaults;$.Autocompleter.Cache = old.Cache;$.Autocompleter.Select = old.Select;\n';
+	target += '});\n';
 
 	return cont.replace(marker, target + marker);
 }
