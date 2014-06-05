@@ -94,15 +94,14 @@ function account_manage()
 {
 	var handle = window.location.href.match(/[^/]*$/);
 	var dialog = $('<div id="account-dialog"/>').css({
-		'position':'fixed','padding':'5px','width':'30em','z-index':2000,'left':'50%','top':'50%','margin-top':'-3.5em','margin-left':'-15em',
-		'border':'1px solid', 'border-radius':'5px', '-moz-border-radius':'5px', '-webkit-border-radius':'5px',
-		'background':'rgb(255,255,255)','box-shadow':'rgb(64,64,64) 5px 5px 5px','-moz-box-shadow':'rgb(64,64,64) 5px 5px 5px','-webkit-box-shadow':'rgb(64,64,64) 5px 5px 5px'
+		position:'fixed',padding:'5px',width:'30em',zIndex:2000,left:'50%',top:'50%',marginTop:'-3.5em',marginLeft:'-15em',
+		border:'1px solid', borderRadius:'5px',background:'rgb(255,255,255)',boxShadow:'rgb(64,64,64) 5px 5px 5px'
 	}).html(
 		'<p>Input space-separated accounts without this account.</p>' +
 		'<form id="account-form"><p><input type="text" id="accounts" size="40" value="'+(handle !=  login_account ? login_account : '')+'"></p>' +
 		'<p><input type="submit" id="ok" value="OK"> <input type="button" id="cancel" value="cancel"></p></form>'
 	);
-	$('p', dialog).css({'margin':'1em'});
+	$('p', dialog).css({margin:'1em'});
 	$('#cancel', dialog).click(function() {
 		$('#account-dialog').remove();
 		$('#account-dialog-blocker').remove();
@@ -119,8 +118,8 @@ function account_manage()
 		}
 	});
 	var blocker = $('<div id="account-dialog-blocker"/>').css({
-		'position':'fixed','top':0,'left':0,'bottom':0,'right':0,'width':'100%','height':'100%','z-index':15,
-		'background':'rgb(64,64,64)','opacity':0.75,'filter':'alpha(opacity=75)','-ms-filter':'"alpha(opacity=75)"'
+		position:'fixed',top:0,left:0,bottom:0,right:0,width:'100%',height:'100%',zIndex:15,
+		background:'rgb(64,64,64)',opacity:0.75
 	});
 	$('body').append(blocker);
 	$('body').append(dialog);
