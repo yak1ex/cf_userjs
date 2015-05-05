@@ -16,8 +16,8 @@
 // ==/UserScript==
 
 // v1.6  2015/05/05 Add GNU C11.
-                    Add GNU C++11, unified with GNU C++0x.
-                    Add PyPy, unified with PyPy 2 and PyPy 3. Java 8 and JavaScript.
+//                  Add GNU C++11, unified with GNU C++0x.
+//                  Add PyPy, unified with PyPy 2 and PyPy 3.
 // v1.5  2014/06/01 Add Java 8 and JavaScript.
 // v1.4  2013/05/07 Split Python to Python 2 and Python 3.
 //                  Split C# to Mono C# and MS C#
