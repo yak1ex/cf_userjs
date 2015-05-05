@@ -4,13 +4,14 @@
 // @description    Enable to show rating history graph with other accounts on profile pages at Codeforces
 // @license        http://creativecommons.org/publicdomain/zero/1.0/
 // @copyright      yak_ex
-// @version        1.2
+// @version        1.3
 // @include        http://www.codeforces.com/profile/*
 // @include        http://codeforces.com/profile/*
 // @include        http://www.codeforces.ru/profile/*
 // @include        http://codeforces.ru/profile/*
 // ==/UserScript==
 
+// v1.3  2015/05/05 Sync with site changes.
 // v1.2  2014/06/05 Autocomplete account names
 //                  Keep the color of the highest dots
 // v1.1  2013/03/15 Fix failure to get log-in account
@@ -191,7 +192,7 @@ function add_account_manage(cont)
 
 function get_target_script()
 {
-	var e = document.getElementById('content').getElementsByTagName('script');
+	var e = document.getElementById('pageContent').getElementsByTagName('script');
 	for(var i = 0; i < e.length; ++i) {
 		if(e[i].textContent.match(/data\.push/) != null) {
 			return e[i];
