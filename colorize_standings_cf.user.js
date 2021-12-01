@@ -6,13 +6,21 @@
 // @copyright      yak_ex
 // @version        1.6
 // @include        http://www.codeforces.com/contest/*/standings*
+// @include        https://www.codeforces.com/contest/*/standings*
 // @include        http://www.codeforces.com/contest/*/room/*
+// @include        https://www.codeforces.com/contest/*/room/*
 // @include        http://codeforces.com/contest/*/standings*
+// @include        https://codeforces.com/contest/*/standings*
 // @include        http://codeforces.com/contest/*/room/*
+// @include        https://codeforces.com/contest/*/room/*
 // @include        http://www.codeforces.ru/contest/*/standings*
+// @include        https://www.codeforces.ru/contest/*/standings*
 // @include        http://www.codeforces.ru/contest/*/room/*
+// @include        https://www.codeforces.ru/contest/*/room/*
 // @include        http://codeforces.ru/contest/*/standings*
+// @include        https://codeforces.ru/contest/*/standings*
 // @include        http://codeforces.ru/contest/*/room/*
+// @include        https://codeforces.ru/contest/*/room/*
 // ==/UserScript==
 
 // v1.6  2015/05/05 Add GNU C11.
